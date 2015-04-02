@@ -1,14 +1,35 @@
 #!/usr/bin/env ruby
 
-search = ARGV
-query = String.new
+@search = ARGV
+@query = String.new
 
-search.each do |word|
-  if word == search.last
-    query << word
+def search_for_query
+  @search.each do |word|
+    add_to_query(word)
+  end
+  system "open https://www.google.com/search?q=\"#{@query}\""
+end
+
+def search_for_images
+  @search.delete(@search.first)
+  @search.each do |word|
+    add_to_query(word)
+  end
+
+  system  "open \"https://www.google.com/search?q=#{@query}&tbm=isch\""
+end
+
+def add_to_query(word)
+  if word == @search.last
+    @query << word
   else
-    query << "#{word} "
+    @query << "#{word} "
   end
 end
 
-system "open https://www.google.com/search?q=\"#{query}\""
+case @search.first
+when '-i'
+  search_for_images
+else
+  search_for_query
+end
