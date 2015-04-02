@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+search = ARGV
+query = String.new
+
+search.each do |word|
+  if word == search.last
+    query << word
+  else
+    query << "#{word} "
+  end
+end
+
+system "open https://www.google.com/search?q=\"#{query}\""
