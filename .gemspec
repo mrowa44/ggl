@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
     s.name              = 'ggl'
     s.version           = '0.1'
-    s.summary           = 'Search google in your browser from command line'
+    s.summary           = 'Google right from your command line'
     s.author            = 'Justyna Rachowicz'
     s.email             = 'justynarachowicz@gmail.com'
     s.homepage          = 'https://github.com/mrowa44/ggl'
