@@ -26,6 +26,18 @@ def search_youtube
   system "open https://www.youtube.com/results?search_query=\"#{@query}\""
 end
 
+def search_stack
+  @search.delete(@search.first)
+  @search.each do |word|
+    if word == @search.last
+      @query << word
+    else
+      @query << "#{word}+"
+    end
+  end
+  system "open http://stackoverflow.com/search?q=#{@query}"
+end
+
 def add_to_query(word)
   if word == @search.last
     @query << word
@@ -43,6 +55,7 @@ def usage
    ggl [query]
    ggl -i/--images [query]
    ggl -y/--youtube [query]
+   ggl -s/--stack/--stackoverflow [query]
 
    ggl -h/--help
 
@@ -54,6 +67,8 @@ when '-i', '--images'
   search_for_images
 when '-y', '--youtube'
   search_youtube
+when '-s', '--stack', '--stackoverflow'
+  search_stack
 when '-h', '--help', nil
   usage
 else
