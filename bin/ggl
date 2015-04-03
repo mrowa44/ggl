@@ -1,13 +1,21 @@
 #!/usr/bin/env ruby
 
+system = `uname -s`
 @search = ARGV
 @query = String.new
+
+case system
+when 'Darwin', "Darwin\n"
+  @open_command = 'open'
+else
+  @open_command = 'xdg-open'
+end
 
 def search_for_query
   @search.each do |word|
     add_to_query(word)
   end
-  system "open https://www.google.com/search?q=\"#{@query}\""
+  system "#{@open_command} https://www.google.com/search?q=\"#{@query}\""
 end
 
 def search_for_images
@@ -15,7 +23,7 @@ def search_for_images
   @search.each do |word|
     add_to_query(word)
   end
-  system  "open \"https://www.google.com/search?q=#{@query}&tbm=isch\""
+  system  "#{@open_command} \"https://www.google.com/search?q=#{@query}&tbm=isch\""
 end
 
 def search_youtube
@@ -23,7 +31,7 @@ def search_youtube
   @search.each do |word|
     add_to_query(word)
   end
-  system "open https://www.youtube.com/results?search_query=\"#{@query}\""
+  system "#{@open_command} https://www.youtube.com/results?search_query=\"#{@query}\""
 end
 
 def search_stack
@@ -35,7 +43,7 @@ def search_stack
       @query << "#{word}+"
     end
   end
-  system "open http://stackoverflow.com/search?q=#{@query}"
+  system "#{@open_command} http://stackoverflow.com/search?q=#{@query}"
 end
 
 def add_to_query(word)
