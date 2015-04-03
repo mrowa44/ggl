@@ -15,8 +15,15 @@ def search_for_images
   @search.each do |word|
     add_to_query(word)
   end
-
   system  "open \"https://www.google.com/search?q=#{@query}&tbm=isch\""
+end
+
+def search_youtube
+  @search.delete(@search.first)
+  @search.each do |word|
+    add_to_query(word)
+  end
+  system "open https://www.youtube.com/results?search_query=\"#{@query}\""
 end
 
 def add_to_query(word)
@@ -27,9 +34,28 @@ def add_to_query(word)
   end
 end
 
+def usage
+  puts <<-EOF
+ ggl - Google right from your command line
+
+ Usage:
+
+   ggl [query]
+   ggl -i/--images [query]
+   ggl -y/--youtube [query]
+
+   ggl -h/--help
+
+  EOF
+end
+
 case @search.first
-when '-i'
+when '-i', '--images'
   search_for_images
+when '-y', '--youtube'
+  search_youtube
+when '-h', '--help', nil
+  usage
 else
   search_for_query
 end
