@@ -2,7 +2,7 @@
 
 system = `uname -s`
 @search = ARGV
-@query = String.new
+@query = ''
 
 case system
 when 'Darwin', "Darwin\n"
@@ -23,7 +23,7 @@ def search_for_images
   @search.each do |word|
     add_to_query(word)
   end
-  system  "#{@open_command} \"https://www.google.com/search?q=#{@query}&tbm=isch\""
+  system "#{@open_command} \"https://www.google.com/search?q=#{@query}&tbm=isch\""
 end
 
 def search_youtube
@@ -55,7 +55,7 @@ def add_to_query(word)
 end
 
 def usage
-  puts <<-EOF
+  puts <<-USAGE
  ggl - Google right from your command line
 
  Usage:
@@ -67,7 +67,7 @@ def usage
 
    ggl -h/--help
 
-  EOF
+   USAGE
 end
 
 case @search.first

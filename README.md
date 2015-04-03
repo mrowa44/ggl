@@ -3,13 +3,16 @@ ggl
 Google right from your command line
 -----------------------------------
 
-Some description
+Do you ever need to perform a quick google search while on command line?
+Well thats exactly what ggl is for, it lets you open your browser on your query without the hassle. You can also search Google Images, YouTube and Stackoverflow. See usage for more info.
 
 Installation
 ------------
 ```sh
 gem install ggl
 ```
+
+If you're not on OSX you need to have ```xdg-open``` installed.
 
 Usage
 -----
