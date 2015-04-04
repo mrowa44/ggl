@@ -46,6 +46,18 @@ def search_stack
   system "#{@open_command} http://stackoverflow.com/search?q=#{@query}"
 end
 
+def search_wiki
+  @search.delete(@search.first)
+  @search.each do |word|
+    if word == @search.last
+      @query << word
+    else
+      @query << "#{word}+"
+    end
+  end
+  system "#{@open_command} http://www.wikipedia.org/w/index.php?search=\"#{@query}\""
+end
+
 def add_to_query(word)
   if word == @search.last
     @query << word
@@ -64,6 +76,7 @@ def usage
    ggl -i/--images [query]
    ggl -y/--youtube [query]
    ggl -s/--stack/--stackoverflow [query]
+   ggl -w/--wiki/--wikipedia [query]
 
    ggl -h/--help
 
@@ -77,6 +90,8 @@ when '-y', '--youtube'
   search_youtube
 when '-s', '--stack', '--stackoverflow'
   search_stack
+when '-w', '--wiki', '--wikipedia'
+  search_wiki
 when '-h', '--help', nil, '-'
   usage
 else
