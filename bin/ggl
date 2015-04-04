@@ -34,6 +34,14 @@ def search_youtube
   system "#{@open_command} https://www.youtube.com/results?search_query=\"#{@query}\""
 end
 
+def search_ddg
+  @search.delete(@search.first)
+  @search.each do |word|
+    add_to_query(word)
+  end
+  system "#{@open_command} https://duckduckgo.com/?q=\"#{@query}\""
+end
+
 def search_stack
   @search.delete(@search.first)
   @search.each do |word|
@@ -77,6 +85,7 @@ def usage
    ggl -y/--youtube [query]
    ggl -s/--stack/--stackoverflow [query]
    ggl -w/--wiki/--wikipedia [query]
+   ggl -d/--ddg/ [query]
 
    ggl -h/--help
 
@@ -92,6 +101,8 @@ when '-s', '--stack', '--stackoverflow'
   search_stack
 when '-w', '--wiki', '--wikipedia'
   search_wiki
+when '-d', '--ddg'
+  search_ddg
 when '-h', '--help', nil, '-'
   usage
 else
