@@ -77,7 +77,7 @@ when '-y', '--youtube'
   search_youtube
 when '-s', '--stack', '--stackoverflow'
   search_stack
-when '-h', '--help', nil
+when '-h', '--help', nil, '-'
   usage
 else
   search_for_query
