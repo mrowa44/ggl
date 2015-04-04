@@ -46,6 +46,14 @@ def search_stack
   system "#{@open_command} http://stackoverflow.com/search?q=#{@query}"
 end
 
+def search_maps
+  @search.delete(@search.first)
+  @search.each do |word|
+    add_to_query(word)
+  end
+  system "#{@open_command} https://maps.google.com/?q=\"#{@query}\""
+end
+
 def add_to_query(word)
   if word == @search.last
     @query << word
@@ -64,6 +72,7 @@ def usage
    ggl -i/--images [query]
    ggl -y/--youtube [query]
    ggl -s/--stack/--stackoverflow [query]
+   ggl -m/--maps [query]
 
    ggl -h/--help
 
@@ -77,6 +86,8 @@ when '-y', '--youtube'
   search_youtube
 when '-s', '--stack', '--stackoverflow'
   search_stack
+when '-m', '--maps'
+  search_maps
 when '-h', '--help', nil
   usage
 else
