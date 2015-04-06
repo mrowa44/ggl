@@ -34,6 +34,14 @@ def search_youtube
   system "#{@open_command} https://www.youtube.com/results?search_query=\"#{@query}\""
 end
 
+def search_ddg
+  @search.delete(@search.first)
+  @search.each do |word|
+    add_to_query(word)
+  end
+  system "#{@open_command} https://duckduckgo.com/?q=\"#{@query}\""
+end
+
 def search_stack
   @search.delete(@search.first)
   @search.each do |word|
@@ -44,6 +52,18 @@ def search_stack
     end
   end
   system "#{@open_command} http://stackoverflow.com/search?q=#{@query}"
+end
+
+def search_wiki
+  @search.delete(@search.first)
+  @search.each do |word|
+    if word == @search.last
+      @query << word
+    else
+      @query << "#{word}+"
+    end
+  end
+  system "#{@open_command} http://www.wikipedia.org/w/index.php?search=\"#{@query}\""
 end
 
 def add_to_query(word)
@@ -64,6 +84,8 @@ def usage
    ggl -i/--images [query]
    ggl -y/--youtube [query]
    ggl -s/--stack/--stackoverflow [query]
+   ggl -w/--wiki/--wikipedia [query]
+   ggl -d/--ddg/--duckduckgo/ [query]
 
    ggl -h/--help
 
@@ -77,7 +99,11 @@ when '-y', '--youtube'
   search_youtube
 when '-s', '--stack', '--stackoverflow'
   search_stack
-when '-h', '--help', nil
+when '-w', '--wiki', '--wikipedia'
+  search_wiki
+when '-d', '--ddg', '--duckduckgo'
+  search_ddg
+when '-h', '--help', nil, '-'
   usage
 else
   search_for_query
