@@ -22,7 +22,7 @@ ggl -i/--images [query]                     google images search
 ggl -y/--youtube [query]                    youtube search
 ggl -s/--stack/--stackoverflow [query]      search stackoverflow (oh yes)
 ggl -w/--wiki/--wikipedia [query]           search wikipedia
-ggl -d/--ddg/--duckduckgo/ [query]          search duckduckgo
+ggl -d/--ddg/--duckduckgo [query]          search duckduckgo
 
 ```
 License
