@@ -85,7 +85,7 @@ def usage
    ggl -y/--youtube [query]
    ggl -s/--stack/--stackoverflow [query]
    ggl -w/--wiki/--wikipedia [query]
-   ggl -d/--ddg/--duckduckgo/ [query]
+   ggl -d/--ddg/--duckduckgo [query]
 
    ggl -h/--help
 
