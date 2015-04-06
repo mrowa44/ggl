@@ -85,7 +85,7 @@ def usage
    ggl -y/--youtube [query]
    ggl -s/--stack/--stackoverflow [query]
    ggl -w/--wiki/--wikipedia [query]
-   ggl -d/--ddg/ [query]
+   ggl -d/--ddg/--duckduckgo/ [query]
 
    ggl -h/--help
 
@@ -101,7 +101,7 @@ when '-s', '--stack', '--stackoverflow'
   search_stack
 when '-w', '--wiki', '--wikipedia'
   search_wiki
-when '-d', '--ddg'
+when '-d', '--ddg', '--duckduckgo'
   search_ddg
 when '-h', '--help', nil, '-'
   usage
