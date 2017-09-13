@@ -25,6 +25,10 @@ def search_wiki
   system "#{open_command} http://www.wikipedia.org/w/index.php?search=\"#{query('+')}\""
 end
 
+def search_git
+  system "#{open_command} https://github.com/search?utf8=✓&q=#{query('+')}\""
+end
+
 def open_command
   `uname -s`.strip == 'Darwin' ? 'open' : 'xdg-open'
 end
@@ -45,6 +49,8 @@ def usage
    ggl -s/--stack/--stackoverflow [query]
    ggl -w/--wiki/--wikipedia [query]
    ggl -d/--ddg/--duckduckgo [query]
+   ggl -g/--git/--github [query]
+
 
    ggl -h/--help
 
@@ -63,6 +69,8 @@ when '-w', '--wiki', '--wikipedia'
   search_wiki
 when '-d', '--ddg', '--duckduckgo'
   search_ddg
+when '-g', '--git', '--github'
+  search_git
 when '-h', '--help', nil, '-'
   usage
 else

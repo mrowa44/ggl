@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name              = 'ggl'
-    s.version           = '0.2'
+    s.version           = '0.3'
     s.summary           = 'Google right from your command line'
     s.author            = 'Justyna Rachowicz'
     s.email             = 'justynarachowicz@gmail.com'

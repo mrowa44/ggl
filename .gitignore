@@ -1,2 +1,8 @@
 ggl-*.gem
 bin/.ggl.swp
+.idea
+.idea/ggl.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
