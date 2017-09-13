@@ -26,7 +26,7 @@ def search_wiki
 end
 
 def search_git
-  system "#{open_command} https://github.com/search?utf8=✓&q=#{query('+')}\""
+  system "#{open_command} http://github.com/search?q=#{query('+')}"
 end
 
 def open_command
