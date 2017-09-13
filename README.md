@@ -4,7 +4,15 @@ Google right from your command line
 -----------------------------------
 
 Do you ever need to perform a quick google search while on command line?
-Well that's exactly what ggl is for, it lets you open your browser on your query without the hassle. You can also search Google Images, YouTube, Stackoverflow, Wikipedia and DuckDuckGo. See usage for more info.
+Well that's exactly what ggl is for, it lets you open your browser on your query without the hassle. You can also search:
+- Google Images
+- YouTube
+- Stackoverflow
+- Wikipedia
+- DuckDuckGo
+- Github
+
+See usage for more info.
 
 Installation
 ------------
@@ -29,6 +37,4 @@ ggl -g/--git/--github [query]               search github
 License
 -------
 
-Copyright 2015 Justyna Rachowicz
-
-This project including all of its source files is released under the terms of GNU General Public License (version 3 or later)
+MIT © [Justyna Rachowicz](https://github.com/mrowa44)

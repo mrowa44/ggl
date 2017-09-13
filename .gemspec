@@ -1,11 +1,11 @@
 Gem::Specification.new do |s|
     s.name              = 'ggl'
-    s.version           = '0.3'
+    s.version           = '1.0'
     s.summary           = 'Google right from your command line'
     s.author            = 'Justyna Rachowicz'
-    s.email             = 'justynarachowicz@gmail.com'
+    s.email             = 'mrowa44+ggl@gmail.com'
     s.homepage          = 'https://github.com/mrowa44/ggl'
-    s.license           = 'GPL-3.0'
+    s.license           = 'MIT'
     s.bindir            = 'bin'
-    s.executables      << 'ggl' 
+    s.executables      << 'ggl'
 end
